@@ -5,7 +5,7 @@ const students = [
 	{ name: 'Scott', course: 'English', grade: 80 },
 	{ name: 'Arnold', course: 'Robotics', grade: 98 },
 ];
-
+//remember to install express and body-parser
 const express = require('express');
 const bodyParser = require('body-parser');  //used to grab data from post bodies
 
