@@ -22,7 +22,14 @@ webserver.get('/students', function(req, res){
 	//get all students from the global student variable
 	//convert to json
 	//output that data in a way that your SGT will understand (look at what our SGT backend did)
+    let output = {
+        success: true,
+        data: students
+    };
+    res.json(output);
+
 });
+
 //notice that this is a post request, not a get request
 webserver.post('/students', function(req, res){
 	//create a student here.
@@ -31,6 +38,12 @@ webserver.post('/students', function(req, res){
 	//req.body.DATAYOUWANT
 	//use that data from the post data to make new object
 	//add the object to the array
+    let newStudent = {
+        name: req.body.name,
+        course: req.body.course,
+        grade: req.body.grade
+    };
+    students.add(newStudent);
 });
 
 //notice this is a delete request, not a get or post request
@@ -43,10 +56,9 @@ webserver.delete('/students', function(req, res){
 });
 
 
-
 webserver.listen(3000, function(){
 	console.log('server is listening');
-})
+});
 
 
 
